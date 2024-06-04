@@ -97,10 +97,24 @@ ORDER BY count_videogames DESC;
 
 4- Mostrare il numero di videogiochi rilasciati ogni anno (11)
 
+SELECT COUNT(ID) AS count_release ,YEAR(release_date) AS year  
+FROM videogames
+GROUP BY YEAR(release_date)
+ORDER BY count_release DESC;
 
 5- Contare quanti videogiochi sono disponbiili per ciascun device (del device vogliamo solo l'ID) (7)
 
+SELECT COUNT(ID) AS count_videogames, device_id
+FROM device_videogame
+GROUP BY device_id 
+ORDER BY device_id DESC;
+
 6- Ordinare i videogame in base alla media delle recensioni (del videogioco vogliamo solo l'ID) (500)
+
+SELECT AVG(rating) AS avg_rating, videogame_id 
+FROM reviews 
+GROUP BY videogame_id 
+ORDER BY avg_rating DESC;
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
